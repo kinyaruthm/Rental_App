@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/LOGIN"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="600dp"
+        android:text="LOGIN"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="400dp"
+        android:hint="username"
+        android:textColor="@color/white"
+        android:textSize="50dp"
+
+        />
+
+    <EditText
+        android:id ="@+id/password"
+        android:layout_width ="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="300dp"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textSize="50dp"></EditText>
+
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="150dp"
+        android:text="submit"
+        android:textAllCaps="false"
+        android:textSize="45dp"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Not registered?"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="600dp"
+        android:textSize="30dp"
+        android:gravity="left"
+
+        ></TextView>
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:layout_marginBottom="80dp"
+        android:gravity="left"
+        android:layout_marginLeft="210dp"
+        android:text="signup here"
+        android:textSize="20dp"
+
+        ></Button>
+
+</RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
