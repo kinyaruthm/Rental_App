@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home"
+    android:id="@+id/drawer"
+    tools:openDrawer="start"
+    android:background="@color/white">
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:headerLayout="@layout/headers"
+        android:id="@+id/navigation"
+        android:layout_gravity="start"
+        app:menu="@menu/menu"
+        ></com.google.android.material.navigation.NavigationView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:padding="5dp"
+                android:layout_marginTop="60dp"
+                android:id="@+id/searchEditText"
+                android:drawableRight="@drawable/baseline_search_24"
+                android:layout_gravity="center"></EditText>
+        </LinearLayout>
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            >
+
+        </include>
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/becomeLandlord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="becomeLandlord"
+            ></TextView>
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/images"
+               android:id="@+id/image1"
+               >
+           </ImageView>
+
+           <TextView
+               android:id="@+id/txt1"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:gravity="top|center"
+               android:layout_marginTop="10dp"
+               android:text="Book A room of your choice"
+               android:textColor="@color/purple_700"
+               android:textSize="30dp"
+               android:textStyle="bold"></TextView>
+
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:gravity="center"
+
+               >
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:gravity="center"
+                   >
+
+                   <ImageButton
+                       android:id="@+id/sngleroom"
+                       android:layout_width="160dp"
+                       android:layout_height="140dp"
+                       android:layout_gravity="center"
+                       android:background="@drawable/singleroom"
+                       android:contextClickable="true"
+                       android:foregroundGravity="left"
+                       android:onClick="onclick"
+
+
+                       android:paddingLeft="0dp" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:labelFor="@+id/sngleroom"
+                       android:text="singlerooms"
+                       android:textColor="@color/purple_700"
+                       android:textSize="30dp"
+
+
+                       ></TextView>
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:gravity="center"
+                   >
+
+                   <ImageButton
+                       android:id="@+id/room1"
+                       android:layout_width="160dp"
+                       android:layout_height="140dp"
+                       android:layout_gravity="left|center"
+                       android:layout_marginLeft="20dp"
+
+
+                       android:background="@drawable/bedsitter"
+                       android:contextClickable="true"
+                       />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+
+                       android:labelFor="@+id/bedsitter"
+                       android:text="bedsitters"
+                       android:textColor="@color/purple_700"
+                       android:textSize="30dp"
+
+
+                       ></TextView>
+
+               </LinearLayout>
+           </LinearLayout>
+
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:gravity="center">
+               <ImageButton
+                   android:id="@+id/onebedroom"
+                   android:layout_width="160dp"
+                   android:layout_height="140dp"
+                   android:layout_gravity="center"
+                   android:background="@drawable/bedroom"
+                   android:contextClickable="true"
+                   android:foregroundGravity="left"
+                   />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:labelFor="@+id/onebedroom"
+                   android:text="1bedroom"
+                   android:textColor="@color/purple_700"
+                   android:textSize="30dp"
+                   ></TextView>
+           </LinearLayout>
+
+       </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

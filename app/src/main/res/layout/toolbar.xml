@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey"
+        android:elevation="4dp"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        app:navigationIcon="@android:drawable/ic_menu_sort_by_size">
+
+
+    <Button
+        android:id="@+id/notifications"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:text="notifications"
+        android:textColor="@color/black"
+        android:onClick="becomeLandlord"
+        ></Button>
+
+    <Button
+        android:id="@+id/updates"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:text="Operations"
+        android:visibility="invisible"
+        android:layout_gravity="right"
+        />
+
+</androidx.appcompat.widget.Toolbar>
