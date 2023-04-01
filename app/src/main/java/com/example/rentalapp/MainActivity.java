@@ -1,19 +1,9 @@
 package com.example.rentalapp;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.widget.Toolbar;
-
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,11 +12,15 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,19 +40,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        handler=new Handler();
+        handler = new Handler();
 
-
-
-        sqLitedatabase= new SQLiteDatabase(getApplicationContext());
+        SQLdb database = new SQLdb(getApplicationContext());
+        sqLitedatabase = database.getWritableDatabase();
 
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Cursor cursor= sqLitedatabase.syncDetails();
-                if(cursor !=null && cursor.getCount()>0){
+                Cursor cursor = database.syncDetails();
+                if (cursor != null && cursor.getCount() > 0) {
                     homeLayout();
-                }else{
+                } else {
                     startActivity(new Intent(MainActivity.this, login.class));
                 }
             }
@@ -67,14 +60,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void homeLayout() {
         setContentView(R.layout.activity_home);
-        toolbar =findViewById(R.id.toolbar);
-        navigationView=findViewById(R.id.navigation);
-        drawerLayout=findViewById(R.id.drawer);
-        becomeLandLord=findViewById(R.id.becomeLandlord);
+        toolbar = findViewById(R.id.toolbar);
+        navigationView = findViewById(R.id.navigation);
+        drawerLayout = findViewById(R.id.drawer);
+        becomeLandLord = findViewById(R.id.becomeLandlord);
 
         setSupportActionBar(toolbar);
         navigationView.bringToFront();
-        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this, drawerLayout, toolbar,R.string.Open_navigation, R.string.close_navigation);;
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.Open_navigation, R.string.close_navigation);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -83,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void becomeLandlord(View view) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Would you like to become a Landlord")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -101,22 +94,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alert.setTitle("Become a landlord");
         alert.show();
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        if(item.getItemId()==R.id.menu_item1){
+        if (item.getItemId() == R.id.menu_item1) {
 
             return true;
-        }
-        else if(item.getItemId()==R.id.item3){
+        } else if (item.getItemId() == R.id.item3) {
             startActivity(new Intent(getApplicationContext(), landlord.class));
             return true;
         }
         return false;
     }
-public void setBecomeLandLord(){
-    Toast.makeText(this, "You have Become a Landlord", Toast.LENGTH_SHORT).show();
-}
+
+    public void setBecomeLandLord() {
+        Toast.makeText(this, "You have Become a Landlord", Toast.LENGTH_SHORT).show();
+    }
 }
 
 

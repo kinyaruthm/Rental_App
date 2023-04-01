@@ -3,6 +3,7 @@ package com.example.rentalapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,7 @@ public class login extends AppCompatActivity {
     EditText password ;
     Button submit;
     TextView signup;
-    SQLitedatabase sqLitedatabase;
+    SQLdb sqLitedatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,22 +29,21 @@ public class login extends AppCompatActivity {
         password = findViewById(R.id.loginPassword);
         submit = findViewById(R.id.btn1);
         signup = findViewById(R.id.signup);
-        sqLitedatabase = new SQLitedatabase(getApplicationContext());
+        sqLitedatabase = new SQLdb(getApplicationContext());
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username = Username.getText().toString();
                 String Password = password.getText().toString();
-                //  Cursor cursor = sqLiteDatabase.getSyncedTables();
+                 //Cursor cursor = sqLitedatabase.getSyncedTables();
                 String url = "";
                 String type = "login";
 
-                // Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                Intent home = new Intent(getApplicationContext(), com.example.rentalapp.home.class);
-                startActivity(home);
+               // Toast.makeText(MainActivity., "Login successful", Toast.LENGTH_SHORT).show();
 
-              //  login();
+
+               login();
             }
         });
 
@@ -61,13 +61,13 @@ public class login extends AppCompatActivity {
         String username = Username.getText().toString();
         String Password = password.getText().toString();
 
-       /* boolean insertLogged=sqLitebatabase.insertUsers(username, Password);
+       boolean insertLogged=sqLitedatabase.insertUsers(username, Password);
         if(insertLogged){
             startActivity(new Intent(getApplicationContext(), home.class));
         }else {
             Toast.makeText(this, "Failed, Try Again", Toast.LENGTH_SHORT).show();
         }
-*/
+
 
         new android.os.AsyncTask<Void, Void, String>(){
             protected String doInBackground(Void[] params) {

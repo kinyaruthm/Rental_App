@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
-public class SQLitedatabase extends SQLiteOpenHelper  {
+public class SQLdb extends SQLiteOpenHelper  {
     public  static  final String dbName="rental";
     public  static  final int version=2;
 
@@ -20,12 +20,12 @@ public class SQLitedatabase extends SQLiteOpenHelper  {
             + COLUMN_USER_PASSWORD + " VARCHAR," + COLUMN_USER_USERNAME + "VARCHAR, logged INTEGER )";
 
 
-    public SQLitedatabase(Context context) {
+    public SQLdb(Context context) {
         super(context, dbName, null, version);
          }
 
 
-    public void onCreate(SQLitedatabase db) {
+    public void onCreate(SQLdb db) {
 
         db.execSQL(CREATE_USER_TABLE);
     }
@@ -34,7 +34,7 @@ public class SQLitedatabase extends SQLiteOpenHelper  {
     }
 
 
-    public void onUpgrade(SQLitedatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLdb db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         onCreate(db);
     }
